@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewBag.Title = "Contactos";
+}
+
+
+<h2 style="margin-top:10px">Listado de contactos</h2>
+
+<a class="btn btn-default" style="margin-bottom:10px" onclick="PopupForm('@Url.Action("AddOrEdit","Employee")')"><i class="fas fa-plus"></i> Nuevo contacto</a>
+<table id="contactosTable" class="table table-striped table-bordered">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Telefono</th>
+            <th>Movil</th>
+        </tr>
+    </thead>
+</table>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css">
+
+@section scripts{
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#contactosTable').DataTable({
+                "ajax": {
+                    "url": "Contacto/GetData",
+                    "type": "GET",
+                    "datatype": "json"
+                },
+                "columns": [
+                    { "data": "Nombre" },
+                    { "data": "Email" },
+                    { "data": "Telefono" },
+                    { "data": "Movil" }
+                ],
+                //"language": {
+                //    "lengthMenu": "Mostrando _MENU_ registros por página",
+                //    "zeroRecords": "No se encontraron registros",
+                //    "info": "Mostrando página _PAGE_ de _PAGES_",
+                //    "infoEmpty": "No hay registros disponibles",
+                //    "infoFiltered": "(Filtrado por _MAX_ total de registros)"
+                //}
+            });
+        });
+    </script>
+
+
+        }

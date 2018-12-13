@@ -1,0 +1,31 @@
+﻿@model CyC.GestorDeContactos.AccesoDatos.DTO.Contacto
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+@using (Html.BeginForm("AddOrEdit", "Contacto",FormMethod.Post))
+{
+    @Html.HiddenFor(model => model.UIDContacto)
+    <div class="form-froup">
+        @Html.LabelFor(model => model.Nombre, new {@class="control-label"})
+        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-froup">
+        @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-froup">
+        @Html.LabelFor(model => model.Telefono, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+    <div class="form-froup">
+        @Html.LabelFor(model => model.Movil, new { @class = "control-label" })
+        @Html.EditorFor(model => model.Movil, new { htmlAttributes = new { @class = "form-control" } })
+    </div>
+
+    <div class="form-froup">
+        <input type="submit" value="Guardar" class="btn btn-primary" />
+        <input type="reset" value="Cancelar" class="btn btn-warning" />
+    </div>
+}
+
