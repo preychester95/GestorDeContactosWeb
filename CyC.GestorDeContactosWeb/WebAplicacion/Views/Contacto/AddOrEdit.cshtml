@@ -3,29 +3,33 @@
     ViewBag.Title = "AddOrEdit";
 }
 
-@using (Html.BeginForm("AddOrEdit", "Contacto",FormMethod.Post))
-{
-    @Html.HiddenFor(model => model.UIDContacto)
-    <div class="form-froup">
-        @Html.LabelFor(model => model.Nombre, new {@class="control-label"})
-        @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-    <div class="form-froup">
-        @Html.LabelFor(model => model.Email, new { @class = "control-label" })
-        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-    <div class="form-froup">
-        @Html.LabelFor(model => model.Telefono, new { @class = "control-label" })
-        @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
-    <div class="form-froup">
-        @Html.LabelFor(model => model.Movil, new { @class = "control-label" })
-        @Html.EditorFor(model => model.Movil, new { htmlAttributes = new { @class = "form-control" } })
-    </div>
+<br/>
+<div id="contactoForm" class="container" role="dialog" style="background-color: #FFFFFF;">
+    @using (Html.BeginForm("AddOrEdit", "Contacto", FormMethod.Post, new { onsubmit = "return SubmitForm(this)"}))
+    {
+        @Html.HiddenFor(model => model.UIDContacto)
+        <div class="form-froup">
+            @Html.LabelFor(model => model.Nombre, new { @class = "control-label" })
+            @Html.EditorFor(model => model.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-froup">
+            @Html.LabelFor(model => model.Email, new { @class = "control-label" })
+            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-froup">
+            @Html.LabelFor(model => model.Telefono, new { @class = "control-label" })
+            @Html.EditorFor(model => model.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <div class="form-froup">
+            @Html.LabelFor(model => model.Movil, new { @class = "control-label" })
+            @Html.EditorFor(model => model.Movil, new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+        <br/>
+        <div class="form-froup">
+            <input type="submit" value="Guardar" class="btn btn-primary" />
+            <input type="reset" value="Cancelar" class="btn btn-warning" />
+        </div>
+    }
 
-    <div class="form-froup">
-        <input type="submit" value="Guardar" class="btn btn-primary" />
-        <input type="reset" value="Cancelar" class="btn btn-warning" />
-    </div>
-}
+</div>
 
